@@ -1,0 +1,33 @@
+.footer {
+  padding: 50px 0;
+  background-color: #FAFAFA;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.footer__text {
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #A0A0A0;
+  padding: 20px 0;
+  border-bottom: 1px solid #E8E8E8;
+  margin-bottom: 20px;
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: center;  
+}
+
+.footer__copyright {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+
