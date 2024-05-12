@@ -31,7 +31,7 @@ const SearchForm = () => {
         />
         <button type='submit' className='search__button'>
           <img src={find} alt='кнопка поиска' />
-        </button>    
+        </button>        
       </form>      
     </section>
   );

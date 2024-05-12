@@ -19,25 +19,11 @@ const userSlice = createSlice({
       state.user.favorits = [... state.user.favorits, payload];
     },
     removeFavorite: (state, { payload }) => {
-      state.user.favorits = state.user.favorits.filter(({ imdbId }) => imdbId !== payload.imdbId);
+      state.user.favorits = state.user.favorits.filter(({ kinopoiskId }) => kinopoiskId !== payload.kinopoiskId);
     }   
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createUser.fulfilled, (state, { payload }) => {
-        state.user = payload;
-        window.location.href = "/";
-      })
-      .addCase(createUser.rejected, (_, { error }) => {
-        alert(error.message);
-      })
-      .addCase(logIn.fulfilled, (state, { payload }) => {
-        state.user = payload;
-        window.location.href = "/";
-      })
-      .addCase(logIn.rejected, (_, { error }) => {
-        alert(error.message);
-      })
       .addCase(getProfile.fulfilled, (state, { payload }) => {
         state.user = payload;
       });

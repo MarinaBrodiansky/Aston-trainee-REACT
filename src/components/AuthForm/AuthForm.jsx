@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { createUser, logIn } from '../../store/reducers/userReducer';
 import logo from '../../assets/header-logo.svg';
@@ -25,7 +24,7 @@ const AuthForm = ({ isRegister  }) => {
       <div className='auth__container'>
         <div className='auth__header'>
           <a href='/'><img src={logo} alt='Логотип' className='auth__logo' /></a>
-          <h1 className='auth__title'>{ isRegister ? "Добро пожаловать!" : "Рады видеть!" }</h1>
+          <h1 className='auth__title'>{ isRegister ? "Регистрация" : "Войти" }</h1>
         </div>
         <form onSubmit={hadleSubmit} className='auth__form form'>
           <label className='auth__label' htmlFor='email'>
@@ -48,7 +47,8 @@ const AuthForm = ({ isRegister  }) => {
             type='password'
             id='password'
             name='password'
-            minLength={6}            
+            minLength={6}
+            maxLength={200}
             placeholder="Пароль"
             required
           />

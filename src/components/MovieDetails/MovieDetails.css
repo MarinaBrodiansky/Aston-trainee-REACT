@@ -1,0 +1,31 @@
+.movie__wrapper{
+    margin: 40px 15px;
+}
+
+.movie__main-info-wrapper {
+    display: flex;
+}
+
+.movie_description-wrapper {
+    margin-left: 20px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.movie__title {
+    text-align: left;
+    font-weight: 700;
+    font-family: cursive;
+    font-size: 32px;
+    margin: 0;
+}
+
+.movie__characteristics {
+    font-size: 18px;
+    display: grid;
+    row-gap: 5px;
+    grid-template-columns: 100px 1fr;
+}
+.movie__characteristics p {
+    margin:   0;
+}

@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import './Navigation.css';
 import { UserService } from '../../services/user';
 
-
 const Navigation = ({ loggedIn }) => { 
   const location = useLocation().pathname;
   const user = useSelector(state => state.user.user);
@@ -28,10 +27,10 @@ const Navigation = ({ loggedIn }) => {
 
   return (
     <nav className='navigation'>
-     <Link to='/movies' className='navigation__link'>
+     <Link to='/movies'>
        Фильмы
      </Link>
-     <Link to='/saved-movies' className='navigation__link'>
+     <Link to='/favorite-movies'>
        Избранные фильмы
      </Link>
      <button

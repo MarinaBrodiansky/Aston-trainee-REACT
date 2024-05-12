@@ -9,18 +9,18 @@ export const MoviesCardList = () => {
     data: movies = []
   } = useGetTopMovieQuery();
   const user = useSelector(state => state.user.user);
-  const userFavoritsIds = user?.favorits?.map((item) => item.imdbId)
+  const userFavoritsIds = user?.favorits?.map((item) => item.kinopoiskId)
   const dispatch = useDispatch();
 
-  console.log(movies);
   return (
     <section className="cards">
       <ul className="cards__list">
         {movies.map((movie) => {
-          const isFavorite = user && userFavoritsIds.includes(movie.imdbId);
-          const handleFavoriteClick = () => {
+          const isFavorite = user && userFavoritsIds.includes(movie.kinopoiskId);
+          const handleFavoriteClick = (e) => {
+            e.stopPropagation();
             const payload = {
-              imdbId: movie.imdbId,
+              kinopoiskId: movie.kinopoiskId,
               posterUrlPreview: movie.posterUrlPreview,
               nameRu: movie.nameRu,
             };
@@ -33,7 +33,7 @@ export const MoviesCardList = () => {
 
           return (
             <MoviesCard
-              key={movie.imdbId}
+              key={movie.kinopoiskId}
               isAuth={user}
               isFavorite={isFavorite}
               movie={movie}

@@ -1,6 +1,5 @@
 const AUTH_USER_KEY = "auth-user";
 const USERS_KEY = "aston-users";
-const FAVORITS_KEY = "favorits"; 
 
 const getUsers = () => {
   try {
@@ -16,31 +15,49 @@ const saveUsers = (users) =>
 
 export class UserService {
   static async logIn({ email, password }) {
-    const user = getUsers().find(
-      (user) => user.email === email && user.password === password,
-    );
+    try {
+      const user = getUsers().find(
+          (user) => user.email === email && user.password === password,
+      );
 
-    if (!user)
-      throw new Error("Пользователь не найден. Проверьте логин или пароль.");
-    
-    localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
-    return user;
+      if (!user)
+        throw new Error("Пользователь не найден. Проверьте логин или пароль.");
+
+      localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
+
+      window.location.href = "/";
+    } catch (e) {
+      alert(e.message)
+    }
   }
 
   static async createUser(payload) {
+    try {
+      const users = getUsers();
+      const findUserByLogin = getUsers().find(
+          (user) => user.email === payload.email,
+      );
+
+      if (findUserByLogin)
+        throw new Error("Пользователь c таким логином уже существует.");
+
+      const newUser = {...payload, favorits: []}
+
+      saveUsers([...users, newUser]);
+      localStorage.setItem(AUTH_USER_KEY, JSON.stringify(newUser));
+      window.location.href = "/";
+    } catch (e) {
+      alert(e.message);
+    }
+  }
+
+  static updateUser(user) {
     const users = getUsers();
-    const findUserByLogin = getUsers().find(
-      (user) => user.email === payload.email,
-    );
-
-    if (findUserByLogin)
-      throw new Error("Пользователь c таким логином уже существует.");
-
-    const newUser = {...payload, favorits: []}
-
-    saveUsers([...users, newUser]);
-    localStorage.setItem(AUTH_USER_KEY, JSON.stringify(newUser));
-    return newUser;
+    saveUsers(users.map((dbUser) => {
+      if(user.email === dbUser.email) return user;
+      return dbUser;
+    }));
+    localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
   }
 
   static async getProfile() {
