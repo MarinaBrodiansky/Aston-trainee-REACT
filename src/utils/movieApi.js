@@ -39,3 +39,20 @@ export const getMovieById = async (id) => {
   const data = await fetchData(url);
   return transformMovieById(data);
 };
+
+// Функции преобразования данных (transformResponses)
+// Вам нужно реализовать их самостоятельно
+const transformTopMovies = (data) => {
+  // Преобразование данных для списка популярных фильмов
+  return data;
+};
+
+const transformSearch = (data) => {
+  // Преобразование данных для поиска фильмов по ключевому слову
+  return data;
+};
+
+const transformMovieById = (data) => {
+  // Преобразование данных для получения информации о фильме по идентификатору
+  return data;
+};

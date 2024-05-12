@@ -23,7 +23,10 @@ export const movieService = createApi({
       },
       transformResponse: (data) => data.items,
     }),
+    getMovieById: builder.query({
+      query: (id) => `/${id}`
+    })
   }),
 });
 
-export const { useGetTopMovieQuery } = movieService;
+export const { useGetTopMovieQuery, useGetMovieByIdQuery } = movieService;
