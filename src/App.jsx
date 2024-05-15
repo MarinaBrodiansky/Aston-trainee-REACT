@@ -7,6 +7,8 @@ import Login from '../src/pages/LoginPage/LoginPage';
 import NotFoundPage from '../src/pages/NotFoundPage/NotFoundPage';
 import AuthProvider from './components/AuthProvider/AuthProvider';
 import MovieDetailsPage from "../src/pages/MovieDetailsPage/MovieDetailsPage.jsx";
+import SearchPage from './pages/SearchPage/SearchPage.jsx';
+import HistoryPage from './pages/HistoryPage/HistoryPage.jsx';
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
         <Route path='/signin' element={<Login />} />
         <Route path='/favorite-movies' element={<FavoriteMoviesPage />} />
         <Route path='/movie/:id' element={<MovieDetailsPage />} />
+        <Route path='/search' element={<SearchPage />} />
+        <Route path='/history' element={<HistoryPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
   </AuthProvider>

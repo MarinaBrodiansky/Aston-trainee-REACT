@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const BASE_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/";
-const API_KEY = "0151e40e-32be-43a0-977d-0cb0257f5604";
+export const BASE_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films";
+export const API_KEY = "0151e40e-32be-43a0-977d-0cb0257f5604";
 
 export const movieService = createApi({
   reducerPath: "movie",
@@ -13,20 +13,30 @@ export const movieService = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getTopMovie: builder.query({
-      query: () => {
+    getMovie: builder.query({
+      query: (search) => {
         const params = {
-          type: "TOP_POPULAR_ALL",
           page: 1,
         };
-        return `collections?${new URLSearchParams(params)}`;
+
+        if(search) params.keyword = search;
+        else params.type = "TOP_POPULAR_ALL";
+
+
+
+        return `${search ? '' : '/collections'}?${new URLSearchParams(params)}`;
       },
       transformResponse: (data) => data.items,
     }),
     getMovieById: builder.query({
       query: (id) => `/${id}`
+    }),
+    getMovieBySearch: builder.query({
+      query: (search) => new URLSearchParams({
+        keyword: search
+      })
     })
   }),
 });
 
-export const { useGetTopMovieQuery, useGetMovieByIdQuery } = movieService;
+export const { useGetMovieQuery, useGetMovieByIdQuery } = movieService;
