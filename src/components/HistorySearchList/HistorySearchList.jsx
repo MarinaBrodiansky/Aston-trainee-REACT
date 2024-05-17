@@ -7,16 +7,9 @@ import "./HistorySearchList.css"
 
 export const HistorySearchList = () => {
     const user = useSelector(state => state.user.user);
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const history = user?.history;
     
-    useEffect(() => {
-        if(!user) {
-            navigate('/');
-        }
-    }, [user])
-
     const handleRemove = (e, search) => {
         e.preventDefault();
         dispatch(removeHistoryItem(search));

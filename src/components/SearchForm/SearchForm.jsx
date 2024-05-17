@@ -65,7 +65,7 @@ const SearchForm = () => {
           className='search__input'
           required
           name='searchRequest'
-          onChange={handleSearchChange}
+          onChange={handleSearchChange} 
         />
         <button type='submit' className='search__button'>
           <img src={find} alt='кнопка поиска' />

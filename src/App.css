@@ -7,13 +7,13 @@
   flex-direction: column;  
   min-width: 100vh;
   min-height: 100vh;
-
   box-sizing: border-box;
 }
-/* 
-.App {
 
-} */
+.App {
+  height: 100vh;
+  min-height: 100%;
+}
 
 li {
   list-style-type: none;

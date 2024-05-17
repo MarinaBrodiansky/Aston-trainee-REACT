@@ -6,7 +6,11 @@ const FavoriteMoviesPage = () => {
   return (
     <>
       <Header />
-      <FavoriteCardsList />
+      <div className="favorite-movies">
+        <div className="favorite-movies__content">
+          <FavoriteCardsList />
+        </div>
+      </div>
       <Footer />
     </>
   );
