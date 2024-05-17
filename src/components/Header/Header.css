@@ -1,7 +1,9 @@
+
 .header {
   padding: 18px 70px;
   display: flex;
   align-items: center;
+  background-color: #fff;
 }
 
 .header__logo {
@@ -12,4 +14,59 @@
 
 .header__logo:hover {
   opacity: 0.8;
+}
+
+.header_dark {
+  background-color: #000000;
+}
+
+.header_dark nav a {
+  color: #fff;
+}
+
+
+
+/* toggle */
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  width: 40px;
+  height: 17px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+.checkbox-label_light{
+  background-color: #2be080;
+}
+
+.checkbox-label_dark {
+  background-color: #2be080;
+}
+
+.checkbox-label_dark .ball{
+  background-color: '#ffab06'
 }

@@ -4,21 +4,24 @@
     gap: 20px;
 }
 
-.favorites__hint{
+.favorites__header{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     color: #A0A0A0;
+    font-weight: normal;
     margin: 15px auto;
     grid-column-start:1;
     grid-column-end: 5;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
-.favorites__header {
+.favorites__hint {
     font-size: 20px;
-    color: #857d7d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #A0A0A0;
+    font-weight: normal;
     margin: 15px auto;
     grid-column-start:1;
     grid-column-end: 5;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 30px;
 }

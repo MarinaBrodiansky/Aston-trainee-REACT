@@ -39,4 +39,3 @@ export const getMovieById = async (id) => {
   const data = await fetchData(url);
   return transformMovieById(data);
 };
-

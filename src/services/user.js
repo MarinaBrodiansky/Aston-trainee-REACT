@@ -17,7 +17,7 @@ export class UserService {
   static async logIn({ email, password }) {
     try {
       const user = getUsers().find(
-          (user) => user.email === email && user.password === password,
+        (user) => user.email === email && user.password === password
       );
 
       if (!user)
@@ -27,7 +27,7 @@ export class UserService {
 
       window.location.href = "/";
     } catch (e) {
-      alert(e.message)
+      alert(e.message);
     }
   }
 
@@ -35,13 +35,13 @@ export class UserService {
     try {
       const users = getUsers();
       const findUserByLogin = getUsers().find(
-          (user) => user.email === payload.email,
+        (user) => user.email === payload.email
       );
 
       if (findUserByLogin)
         throw new Error("Пользователь c таким логином уже существует.");
 
-      const newUser = {...payload, favorits: [], history: []}
+      const newUser = { ...payload, favorits: [], history: [] };
 
       saveUsers([...users, newUser]);
       localStorage.setItem(AUTH_USER_KEY, JSON.stringify(newUser));
@@ -53,10 +53,12 @@ export class UserService {
 
   static updateUser(user) {
     const users = getUsers();
-    saveUsers(users.map((dbUser) => {
-      if(user.email === dbUser.email) return user;
-      return dbUser;
-    }));
+    saveUsers(
+      users.map((dbUser) => {
+        if (user.email === dbUser.email) return user;
+        return dbUser;
+      })
+    );
     localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
   }
 

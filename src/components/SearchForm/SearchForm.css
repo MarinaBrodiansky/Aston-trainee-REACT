@@ -28,12 +28,12 @@
   outline: none;
   opacity: 0.8;
   background: transparent;
-  }
+}
 
-  .search__input::placeholder {
+.search__input::placeholder {
   font-size: 18px;
   line-height: 20px;
-  }
+}
 
 .search__button {
   background-color: #2be080;
@@ -51,4 +51,11 @@
 
 .search__button:hover {
   opacity: 0.8;
+}
+
+.search__hint {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #A0A0A0;
+  font-weight: normal;
 }

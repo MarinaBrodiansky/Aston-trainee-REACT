@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>      
       <Provider store={store}>
           <BrowserRouter>
-              <ErrorBoundary fallback={<h1>Произошла ошибка, попробуйте перезагрузить страницу !</h1>}>
+              <ErrorBoundary fallback={<h1>Произошла ошибка, попробуйте перезагрузить страницу</h1>}>
                   <App />
               </ErrorBoundary>
           </BrowserRouter>
