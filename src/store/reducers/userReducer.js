@@ -16,11 +16,17 @@ const userSlice = createSlice({
   initialState: { user: null },
   reducers: {
     addFavorites: (state, { payload }) => {
-      state.user.favorits = [... state.user.favorits, payload];
+      state.user.favorits.push (payload);
     },
     removeFavorite: (state, { payload }) => {
       state.user.favorits = state.user.favorits.filter(({ kinopoiskId }) => kinopoiskId !== payload.kinopoiskId);
-    }   
+    },   
+    addHistory: (state, { payload }) => {
+      state.user.history.push(payload);
+    },
+    removeHistoryItem: (state, { payload }) => {
+      state.user.history = state.user.history.filter(s => s !== payload)
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -31,5 +37,5 @@ const userSlice = createSlice({
 });
 
 const { actions, reducer } = userSlice;
-export const { addFavorites, removeFavorite } = actions;
+export const { addFavorites, removeFavorite, addHistory, removeHistoryItem } = actions;
 export default reducer;

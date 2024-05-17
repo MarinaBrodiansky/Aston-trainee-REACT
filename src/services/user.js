@@ -41,7 +41,7 @@ export class UserService {
       if (findUserByLogin)
         throw new Error("Пользователь c таким логином уже существует.");
 
-      const newUser = {...payload, favorits: []}
+      const newUser = {...payload, favorits: [], history: []}
 
       saveUsers([...users, newUser]);
       localStorage.setItem(AUTH_USER_KEY, JSON.stringify(newUser));

@@ -27,8 +27,8 @@ const Navigation = ({ loggedIn }) => {
 
   return (
     <nav className='navigation'>
-     <Link to='/movies'>
-       Фильмы
+     <Link to='/history'>
+       История поиска
      </Link>
      <Link to='/favorite-movies'>
        Избранные фильмы
