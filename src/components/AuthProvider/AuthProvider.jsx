@@ -7,13 +7,14 @@ const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
 
-    useEffect(() => {
-       dispatch(getProfile()).unwrap().finally(() => setIsLoading(false));
-    }, [])
+  useEffect(() => {
+    dispatch(getProfile())
+      .unwrap()
+      .finally(() => setIsLoading(false));
+  }, []);
 
-    if(isLoading) return "Загрузка..."; 
-    return children;
-  };
-  
+  if (isLoading) return "Загрузка...";
+  return children;
+};
+
 export default AuthProvider;
-  

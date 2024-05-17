@@ -1,16 +1,16 @@
-import Header from '../Header/Header';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import SearchForm from '../SearchForm/SearchForm';
-import Footer from '../Footer/Footer';
+import Header from "../Header/Header";
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import SearchForm from "../SearchForm/SearchForm";
+import Footer from "../Footer/Footer";
 
-import './Movies.css';
+import "./Movies.css";
 
 const Movies = () => {
   return (
     <main>
-      <section className='movies__page'>
+      <section className="movies__page">
         <Header loggedIn={true} />
-        <div className='movies__content'>
+        <div className="movies__content">
           <SearchForm />
 
           <MoviesCardList

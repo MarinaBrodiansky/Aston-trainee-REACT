@@ -5,9 +5,9 @@ import { FavoriteCardsList } from "../../components/FavoriteCardsList/FavoriteCa
 const FavoriteMoviesPage = () => {
   return (
     <>
-      <Header />
       <div className="favorite-movies">
         <div className="favorite-movies__content">
+          <Header />
           <FavoriteCardsList />
         </div>
       </div>

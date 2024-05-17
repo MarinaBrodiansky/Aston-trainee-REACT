@@ -19,23 +19,22 @@ export const movieService = createApi({
           page: 1,
         };
 
-        if(search) params.keyword = search;
+        if (search) params.keyword = search;
         else params.type = "TOP_POPULAR_ALL";
 
-
-
-        return `${search ? '' : '/collections'}?${new URLSearchParams(params)}`;
+        return `${search ? "" : "/collections"}?${new URLSearchParams(params)}`;
       },
       transformResponse: (data) => data.items,
     }),
     getMovieById: builder.query({
-      query: (id) => `/${id}`
+      query: (id) => `/${id}`,
     }),
     getMovieBySearch: builder.query({
-      query: (search) => new URLSearchParams({
-        keyword: search
-      })
-    })
+      query: (search) =>
+        new URLSearchParams({
+          keyword: search,
+        }),
+    }),
   }),
 });
 

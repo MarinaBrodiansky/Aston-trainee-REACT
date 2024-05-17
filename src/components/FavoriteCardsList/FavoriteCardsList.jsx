@@ -9,8 +9,6 @@ const FavoriteCardsList = () => {
   const favorits = user?.favorits || [];
 
   return (
-    <>
-    
     <div className="favorites__list">
       {favorits?.length ? (
         <>
@@ -32,7 +30,6 @@ const FavoriteCardsList = () => {
         <div className="favorites__hint">Нет избранных фильмов </div>
       )}
     </div>
-    </>
   );
 };
 

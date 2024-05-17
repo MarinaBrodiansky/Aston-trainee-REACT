@@ -3,16 +3,13 @@ import { HistorySearchList } from "../../components/HistorySearchList/HistorySea
 import Footer from "../../components/Footer/Footer";
 
 const HistoryPage = () => {
-
-
-    return (
-        <>
-            <Header />
-            <HistorySearchList />
-            <Footer />
-        </>
-    )
-}
-
+  return (
+    <>
+      <Header />
+      <HistorySearchList />
+      <Footer />
+    </>
+  );
+};
 
 export default HistoryPage;
