@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./FavoriteCardsList.css";
 import MoviesCard from "../MoviesCard/MoviesCard.jsx";
-import { removeFavorite } from "../../store/reducers/userReducer.js";
+import { removeFavorite, getUser } from "../../store/reducers/userReducer.js";
 
 const FavoriteCardsList = () => {
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector(getUser);
   const dispatch = useDispatch();
   const favorits = user?.favorits || [];
 

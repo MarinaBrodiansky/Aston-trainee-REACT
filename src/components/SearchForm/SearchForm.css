@@ -1,7 +1,7 @@
 .search {
   margin: 67px 70px 0;
-  padding-bottom: 70px;
   border-bottom: 1px solid rgba(170, 170, 170, 0.2);
+  position: relative;
 }
 
 .search__form {
@@ -58,4 +58,34 @@
   font-size: 20px;
   color: #A0A0A0;
   font-weight: normal;
+}
+
+.search__input:focus ~ .sudjest_wrapper {
+  display: grid;
+}
+
+.sudjest_wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: none;
+  z-index: 5;
+  background-color: #fffbfb;
+  border: 1px solid #000;
+  overflow: hidden;
+  border-radius: 0 0 15px 15px;
+}
+
+.sudjest_wrapper div {
+  padding: 10px 20px;
+  display: block;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  border-bottom: 1px solid #000;
+}
+
+.sudjest_wrapper div:hover {
+  background: rgb(134, 130, 130);
 }

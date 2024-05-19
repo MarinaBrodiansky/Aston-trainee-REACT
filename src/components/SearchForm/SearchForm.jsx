@@ -1,23 +1,25 @@
+import { useEffect, useState } from "react";
 import "./SearchForm.css";
 import find from "../../assets/find.svg";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addHistory } from "../../store/reducers/userReducer";
-import { useEffect, useState } from "react";
+import { addHistory, getUser } from "../../store/reducers/userReducer";
 import useDebounce from "../../hooks/useDebounce";
+import { useGetMovieBySearchQuery } from "../../services/movie";
 
 const SearchForm = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const querySearch = searchParams.get("q") || "";
-  const user = useSelector((state) => state.user?.user);
+  const user = useSelector(getUser);
   const userHistory = user ? user.history : [];
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState(querySearch);
   const debouncedSearchValue = useDebounce(searchValue, 1000);
-
+  const sujestDebounceValue = useDebounce(searchValue, 200);
   const handleSearchChange = (e) => setSearchValue(e.target.value);
-
+  const { data: sudjest } = useGetMovieBySearchQuery(sujestDebounceValue);
+  
   const handleSearch = (e) => {
     e.preventDefault();
     const search = new FormData(e.target).get("searchRequest").trim();
@@ -29,7 +31,6 @@ const SearchForm = () => {
 
   useEffect(() => {
     let trimSearchValue = debouncedSearchValue.trim();
-
     if (trimSearchValue.length) {
       navigate({
         pathname: "/search",
@@ -47,7 +48,7 @@ const SearchForm = () => {
       }
     }
   }, [debouncedSearchValue]);
-
+  
   return (
     <section className="search">
       <form
@@ -55,6 +56,7 @@ const SearchForm = () => {
         name="search-saved-movie-form"
         onSubmit={handleSearch}
         noValidate
+        autocomplete="off"
       >
         <input
           value={searchValue}
@@ -68,6 +70,13 @@ const SearchForm = () => {
         <button type="submit" className="search__button">
           <img src={find} alt="кнопка поиска" />
         </button>
+        <div className="sudjest_wrapper">
+          {
+            sudjest && sudjest.map(({ name, kinopoiskId}) => {
+                return <div key={name} onMouseDown={() => navigate(`/movie/${kinopoiskId}`)}>{ name }</div>
+            })
+          }
+      </div>
       </form>
     </section>
   );

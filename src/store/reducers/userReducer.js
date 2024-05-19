@@ -40,4 +40,7 @@ const userSlice = createSlice({
 const { actions, reducer } = userSlice;
 export const { addFavorites, removeFavorite, addHistory, removeHistoryItem } =
   actions;
+
+export const getUser = state => state.user.user;
+
 export default reducer;

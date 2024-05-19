@@ -2,10 +2,10 @@ import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./Navigation.css";
 import { UserService } from "../../services/user";
+import { getUser } from "../../store/reducers/userReducer";
 
-const Navigation = ({ loggedIn }) => {
-  const location = useLocation().pathname;
-  const user = useSelector((state) => state.user.user);
+const Navigation = () => {
+  const user = useSelector(getUser);
 
   if (!user) {
     return (

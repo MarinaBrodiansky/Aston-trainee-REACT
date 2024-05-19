@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { useGetMovieQuery } from "../../services/movie";
-import { removeFavorite, addFavorites } from "../../store/reducers/userReducer";
+import { removeFavorite, addFavorites, getUser } from "../../store/reducers/userReducer";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import "./MoviesCardList.css";
 
@@ -9,7 +9,7 @@ export const MoviesCardList = () => {
   const [searchParams] = useSearchParams();
   const search = searchParams.get("q");
   const { data: movies = [], isLoading } = useGetMovieQuery(search);
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector(getUser);
   const userFavoritsIds = user?.favorits?.map((item) => item.kinopoiskId);
   const dispatch = useDispatch();
 

@@ -1,11 +1,10 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeHistoryItem } from "../../store/reducers/userReducer";
+import { getUser, removeHistoryItem } from "../../store/reducers/userReducer";
 import "./HistorySearchList.css";
 
 export const HistorySearchList = () => {
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector(getUser);
   const dispatch = useDispatch();
   const history = user?.history;
 

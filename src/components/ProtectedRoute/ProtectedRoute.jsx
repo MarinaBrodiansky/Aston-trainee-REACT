@@ -1,16 +1,13 @@
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { getUser } from "../../store/reducers/userReducer";
 
 export const ProtectedRoute = ({ children }) => {
-  const user = useSelector((state) => state.user.user);
-  const navigate = useNavigate();
+  const user = useSelector(getUser);
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/");
-    }
-  }, [user]);
+  if(!user) {
+    return <div>Страница только для авторизованных пользователей. <Link to="/signin">Войти</Link></div>
+  }
 
   return children;
 };

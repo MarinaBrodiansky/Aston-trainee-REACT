@@ -31,11 +31,17 @@ export const movieService = createApi({
     }),
     getMovieBySearch: builder.query({
       query: (search) =>
-        new URLSearchParams({
+        "?" + new URLSearchParams({
           keyword: search,
         }),
+        transformResponse: (data) => {
+          return data.items.slice(0, 5).map(film => ({
+            kinopoiskId: film.kinopoiskId,
+            name: film.nameRu || film.nameOriginal
+          }))
+        }
     }),
   }),
 });
 
-export const { useGetMovieQuery, useGetMovieByIdQuery } = movieService;
+export const { useGetMovieQuery, useGetMovieByIdQuery, useGetMovieBySearchQuery } = movieService;
